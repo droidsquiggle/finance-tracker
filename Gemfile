@@ -8,7 +8,6 @@ gem 'rails', '4.2.5'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
-
 # gem used for password encryption
 gem 'bcrypt', '~> 3.1.7'
 

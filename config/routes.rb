@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
-  get 'about' => 'welcome#about'
+  root 'users#my_portfolio'
   
+  get 'about' => 'welcome#about'
+  get 'my_portfolio', to: 'users#my_portfolio'
   
 end
