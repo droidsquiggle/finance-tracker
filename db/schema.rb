@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119010712) do
+ActiveRecord::Schema.define(version: 20171119205957) do
 
   create_table "stocks", force: :cascade do |t|
     t.string   "ticker"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171119010712) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "firstname"
-    t.string   "last_Name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

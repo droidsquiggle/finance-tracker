@@ -59,7 +59,7 @@ class Stock < ActiveRecord::Base
       # Get the most recent data
       recent_data = historical_data.first
       # The actual data hash is in the second item.
-      recent_data = recent_data.second 
+      recent_data = recent_data.second
       
       # Extract desired information into a struct to avoid hash notation.
       OpenStruct.new({

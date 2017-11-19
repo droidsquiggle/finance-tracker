@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
   end
   
   def full_name
-    return "#{first_name} #{last_name}".strip if (first_name || last_name) "Anonymous"
-    end
+    return "#{firstname} #{last_name}".strip if (firstname || last_name)
+    "Anonymous"
   end
   
   def stock_already_added?(ticker_symbol)
