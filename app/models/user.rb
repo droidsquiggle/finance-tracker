@@ -27,4 +27,40 @@ class User < ActiveRecord::Base
     return false unless stock
     user_stocks.where(stock_id: stock.id).exists?
   end
+  
+  def not_friends_with?(friend_id)
+    #if this friend id doesnt show up at least once then they user is not a friend
+    friendships.where(friend_id: friend_id).count < 1
+  end
+  
+  def except_current_user(users)
+    # reject the collection without the current self user within the object
+    users.reject{ |user| user.id == self.id }
+  end
+  
+  def self.serach(param)
+    return User.none if param.blank?
+    
+    param.strip!
+    param.downcase!
+    
+    (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
+  end
+  
+  def self.first_name_matches(param)
+    matches('firstname', param)
+  end
+  
+  def self.last_name_matches(param)
+    matches('last_name', param)    
+  end
+  
+  def self.email_matches(param)
+    matches('email', param)
+  end
+
+  def self.matches(field_name, param)
+    where("lower(#{field_name}) like ? ", "%#{param}%")
+  end
 end
+
